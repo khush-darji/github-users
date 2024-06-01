@@ -7,10 +7,10 @@ interface LabelProps {
 const Label: React.FC<LabelProps> = ({ label, value, className = "" }) =>
   label ? (
     <p className={`text-gray-600 ${className}`}>
-      {label} : {value}
+      {label} : {value ? value : "N/A"}
     </p>
   ) : (
-    <p className={`text-gray-600 ${className}`}>{value}</p>
+    (value && <p className={`text-gray-600 ${className}`}>{value}</p>) || ""
   );
 
 export default Label;
